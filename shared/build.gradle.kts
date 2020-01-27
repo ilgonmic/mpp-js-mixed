@@ -14,8 +14,9 @@ repositories {
 
 kotlin {
     js {
+        produceKotlinLibrary()
+
         browser {
-            produceKotlinLibrary()
         }
     }
 

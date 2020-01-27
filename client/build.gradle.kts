@@ -21,8 +21,9 @@ dependencies {
 kotlin {
     target {
         browser {
-            produceKotlinLibrary()
         }
+
+        produceKotlinLibrary()
     }
 }
 
