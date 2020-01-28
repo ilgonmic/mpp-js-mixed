@@ -8,6 +8,7 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap") }
+    maven(url = "https://dl.bintray.com/kotlin/kotlin-dev")
     mavenCentral()
     mavenLocal()
 }
