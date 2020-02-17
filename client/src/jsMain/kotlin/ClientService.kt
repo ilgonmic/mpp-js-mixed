@@ -3,3 +3,7 @@ class ClientService {
         println(Service().greet())
     }
 }
+
+fun main() {
+    println("Hello")
+}

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.JsCompilerType.both
+
 plugins {
     kotlin("multiplatform")
     id("maven-publish")
@@ -14,11 +16,11 @@ repositories {
 }
 
 kotlin {
-    js {
-        produceKotlinLibrary()
+    js(both) {
 
         browser {
         }
+
     }
 
     jvm()
@@ -57,6 +59,10 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-js"))
             }
+        }
+
+        all {
+            println("SOURCE $this")
         }
     }
 }

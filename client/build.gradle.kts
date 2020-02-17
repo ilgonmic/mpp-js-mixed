@@ -1,5 +1,5 @@
 plugins {
-    kotlin("js")
+    kotlin("multiplatform")
     id("maven-publish")
 }
 
@@ -13,18 +13,28 @@ repositories {
     mavenLocal()
 }
 
-dependencies {
-    implementation(kotlin("stdlib-js"))
-
-    implementation(project(":shared"))
-}
+//dependencies {
+//    implementation(kotlin("stdlib-js"))
+//
+//    implementation(project(":shared"))
+//}
 
 kotlin {
-    target {
+    js(org.jetbrains.kotlin.gradle.plugin.JsCompilerType.ir) {
         browser {
         }
 
-        produceKotlinLibrary()
+        produceExecutable()
+    }
+
+    sourceSets {
+        val jsMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-js"))
+
+                implementation(project(":shared"))
+            }
+        }
     }
 }
 
