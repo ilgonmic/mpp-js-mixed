@@ -3,3 +3,8 @@ actual class Service {
         return "JavaScript"
     }
 }
+
+val a = CommonReferred()
+
+@JsModule("jquery")
+external class JQquery

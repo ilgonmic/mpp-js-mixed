@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.KotlinJsCompilerType.LEGACY
+
 plugins {
     kotlin("multiplatform")
     id("maven-publish")
@@ -13,29 +15,19 @@ repositories {
     mavenLocal()
 }
 
-//dependencies {
-//    implementation(kotlin("stdlib-js"))
-//
-//    implementation(project(":shared"))
-//}
-
 kotlin {
-    js(org.jetbrains.kotlin.gradle.plugin.JsCompilerType.ir) {
+    js(LEGACY) {
         browser {
         }
 
         produceExecutable()
     }
+}
 
-    sourceSets {
-        val jsMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-js"))
+dependencies {
+    "jsImplementation"(kotlin("stdlib-js"))
 
-                implementation(project(":shared"))
-            }
-        }
-    }
+    "jsImplementation"(project(":shared"))
 }
 
 publishing {

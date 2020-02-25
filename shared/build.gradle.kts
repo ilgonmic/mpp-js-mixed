@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.JsCompilerType.both
-
 plugins {
     kotlin("multiplatform")
     id("maven-publish")
@@ -16,14 +14,17 @@ repositories {
 }
 
 kotlin {
-    js(both) {
+    js {
+        useCommonJs()
 
         browser {
         }
 
     }
 
-    jvm()
+    jvm {
+
+    }
 
     sourceSets {
         val commonMain by getting {
@@ -59,10 +60,6 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-js"))
             }
-        }
-
-        all {
-            println("SOURCE $this")
         }
     }
 }
