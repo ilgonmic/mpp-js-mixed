@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.plugin.KotlinJsCompilerType.LEGACY
+import org.jetbrains.kotlin.gradle.plugin.KotlinJsCompilerType.*
 
 plugins {
     kotlin("multiplatform")
@@ -12,15 +12,16 @@ repositories {
     maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap") }
     maven(url = "https://dl.bintray.com/kotlin/kotlin-dev")
     mavenCentral()
+    jcenter()
     mavenLocal()
 }
 
 kotlin {
-    js(LEGACY) {
+    js {
         browser {
         }
 
-        produceExecutable()
+        binaries.executable()
     }
 }
 
@@ -28,12 +29,4 @@ dependencies {
     "jsImplementation"(kotlin("stdlib-js"))
 
     "jsImplementation"(project(":shared"))
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            from(components["kotlin"])
-        }
-    }
 }
